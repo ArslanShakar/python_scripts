@@ -1,0 +1,49 @@
+The script/tool build in Python 3.
+
+Please download & install Editor "Pycharm Community Edition".
+Install mysql in python project interpreter or using pip.
+
+Command: pip install mysql-connector-python
+
+Open project in pychram and set/configure python 3 interpreter.
+If you will need my help while running script, I need teamviewer or anydesk ID for connecting
+with your desktop and I will do setup and will guide you live how to run script.
+----------------------------------
+How to modify fields information.
+Inside script all variables defined, I also have added comments in script for more understanding.
+
+# Input Fields, Please inside double quotes ""  you can fill/modify input fields information
+
+COMPANY_NAME = "ABC"
+ADDRESS = "company address1"
+ADDRESS_2 = "company address2"
+CITY = "California"
+STATE_ABR = "CA"
+STATE_NAME = "California"
+ZIP_CODE = "21546"
+PHONE = ""
+FAX = ""
+TOLL_FREE_NUMBER = ""
+BRANCH_MANAGER = ""
+BM_NMLS_ID = ""
+BM_EMAIL = ""
+REGIONAL_MANAGER = ""
+RM_NMLS_ID = ""
+RM_EMAIL = ""
+MAP_LINK = ""
+POSITION = ""
+VISIBLE = ""
+BRANCH_NMLS_ID = ""
+DAYS_OF_OPERATION = ""
+HOURS_OF_OPERATION = ""
+BRANCH_IMAGE = ""
+BRANCH_POSITION = ""
+BRANCH = ""
+ORIGINATION_TYPE_SERVICE = ""
+WEBSITE_NAME = ""
+WEBSITE_LINK = ""
+
+
+At the end of script you can see run button click at it or press Shift + F10 or click at run button.
+best regards,
+alifarslan
