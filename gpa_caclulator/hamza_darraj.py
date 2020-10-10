@@ -19,8 +19,9 @@ class HamzaDarraj:
 
             if course_credits not in ['1', '2', '3']:
                 print("Invalid number of credits.\nA course can have between 1 and 3 credits. Try again")
-                continue
 
+                # The continue statement in Python returns the control to the beginning of the while loop.
+                continue
             course_letter_grade = input("Enter course letter grade: ")
 
             if course_letter_grade == 'A':

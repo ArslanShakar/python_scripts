@@ -1,0 +1,19 @@
+{
+    "example1": "xxxx",
+    "example2": "xxxx",
+    "example3": "xxxxxx",
+    "example4": "xxxxx",
+    "store": [
+        {
+            "StoreID": "value",
+            "StoreLocation": "value",
+            "StoreName": "value",
+        },
+        {
+            "StoreID": "value",
+            "StoreLocation": "value",
+            "StoreName": "value",
+        }
+    ]
+}
+
