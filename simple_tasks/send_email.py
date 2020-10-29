@@ -4,16 +4,16 @@ from email.mime.text import MIMEText
 
 import mysql.connector as mysql
 
-SENDER_EMAIL = ''  # REPLACE YOUR MAIL
-SENDER_PASSWORD = ''  # REPLACE YOUR PASSWORD
+RECEIVER_EMAIL = 'alifarslan786@gmail.com'  # REPLACE YOUR MAIL
+SENDER_EMAIL = 'huwaiguest@gmail.com'  # REPLACE YOUR MAIL
+SENDER_PASSWORD = 'huwai78600'  # REPLACE YOUR PASSWORD
 SERVER = 'smtp.gmail.com:587'
-RECEIVER_EMAIL = ''  # REPLACE YOUR MAIL
 # Some other example server values are
 # server = 'localhost\sqlexpress' # for a named instance
 # server = 'myserver,port' # to specify an alternate port
 # mysql connection details
 
-SUBJECT = 'Error logs'
+SUBJECT = 'Pending Orders Notification'
 HTML_T = """
      <!DOCTYPE html>
      <html>
@@ -76,27 +76,19 @@ HTML_T = """
      <tbody>
      <tr>
      <td>{}</td>
-     <td>{}</td>
      </tr>
      </tbody>
      </table>
      <br>
-     Bla-bla.<br>
-     For more assistance please contact our support team:
-     <a href='mailto:xyz@gmail.com'>xyz@gmail.com</a>.<br> <br>
+     <br>
+     Please Login here:
+     <a href='https://us.elabinventory.com/login/'>eLabInventory</a>.<br> <br>
      Thank you!
      </body>
      </html>"""
 
 
 class SendEmail:
-    db = mysql.connect(host="localhost", user="root", passwd="", database="test")
-    ## creating an instance of 'cursor' class which is used to execute the 'SQL' statements in 'Python'
-    cursor = db.cursor()
-
-    print(cursor.execute("SELECT * FROM recipes LIMIT 0"))
-    data = cursor.fetchall()
-
     def __init__(self):
         self.send_message()
 
@@ -109,17 +101,15 @@ class SendEmail:
 
     def send_message(self):
         server = smtplib.SMTP("smtp.gmail.com", 587)
+        text = "Please login and check pending orders have existing in queue"
+        html = HTML_T.format(text)
+        message = self._generate_message(html)
 
-        for row in self.data:
-            html = HTML_T.format(row[0], row[1])
-            message = self._generate_message(html)
-
-            server.ehlo()
-            server.starttls()
-            server.ehlo()
-            server.login(SENDER_EMAIL, SENDER_PASSWORD)
-            server.sendmail(SENDER_EMAIL, RECEIVER_EMAIL, message.as_string())
-
+        server.ehlo()
+        server.starttls()
+        server.ehlo()
+        server.login(SENDER_EMAIL, SENDER_PASSWORD)
+        server.sendmail(SENDER_EMAIL, RECEIVER_EMAIL, message.as_string())
         server.quit()
 
 

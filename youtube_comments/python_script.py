@@ -18,8 +18,16 @@ class YoutubeComments:
     file.write("Comments,Url\n")
 
     video_urls = [
-        "https://www.youtube.com/watch?v=k84QxVJd0tI&lc=Ugyp0E4icJcyTzw8CEx4AaABAg",
-        "https://www.youtube.com/watch?v=k84QxVJd0tI&lc=UgyPBMHFU_govXtrYeZ4AaABAg",
+        "https://www.youtube.com/watch?v=hxADTEJalRw&lc=Ugzd-7JseYg2D9Id_g14AaABAg",
+        "https://www.youtube.com/watch?v=hxADTEJalRw&lc=UgyPL40tI4JXMFXJNZ94AaABAg",
+        "https://www.youtube.com/watch?v=hxADTEJalRw&lc=UgxCYHuK7ny2J10VJ5x4AaABAg",
+        "https://www.youtube.com/watch?v=hxADTEJalRw&lc=Ugx--fYkxjD9RmazXtN4AaABAg",
+        "https://www.youtube.com/watch?v=hxADTEJalRw&lc=UgzLLaMknj7Jtv5w8wp4AaABAg",
+        "https://www.youtube.com/watch?v=hxADTEJalRw&lc=Ugy1Bazfdgf4q9PcKHx4AaABAg",
+        "https://www.youtube.com/watch?v=hxADTEJalRw&lc=Ugy1BazdfgdfggdgKHx4AaABAg",
+        "https://www.youtube.com/watch?v=hxADTEJalRw&lc=Ugdfgdf-J_94q9PcKHx4AaABAg",
+        "https://www.youtube.com/watch?v=hxADTEJalRw&lc=UgwTLVv6Y452e4Bspid4AaABAg",
+        "https://www.youtube.com/watch?v=hxADTEJalRw&lc=Ugy1Baz-J_94q9PcKHx4AaABAg",
     ]
 
     def __init__(self):
@@ -27,33 +35,39 @@ class YoutubeComments:
 
     def get_comments(self):
         for url in self.video_urls:
-            driver.get(url)
-            # driver.minimize_window()
-            time.sleep(4)
+            try:
+                driver.get(url)
+                # driver.minimize_window()
+                time.sleep(4)
 
-            time.sleep(random.choice([1, 1.5, 2, 2.5]))
-            start_point = 0
-            end_point = 500
+                time.sleep(random.choice([1, 1.5, 2, 2.5]))
+                start_point = 0
+                end_point = 500
 
-            driver.execute_script(f"window.scrollTo({start_point}, {end_point});")
-            time.sleep(3)
+                driver.execute_script(f"window.scrollTo({start_point}, {end_point});")
+                time.sleep(3)
 
-            comments = re.findall(r'ytd-comments-header-renderer">(.*)</yt-formatted-string', driver.page_source)
-            highlighted = re.findall(r'style-scope ytd-badge-supported-renderer">(.*)</span>', driver.page_source)
-            highlighted = [e.strip() for e in highlighted if e and e.strip()][:1]
+                comments = re.findall(r'ytd-comments-header-renderer">(.*)</yt-formatted-string', driver.page_source)
+                highlighted = re.findall(r'style-scope ytd-badge-supported-renderer">(.*)</span>', driver.page_source)
+                highlighted = [e.strip() for e in highlighted if e and e.strip()][:1]
 
-            if "Highlighted comment" in driver.page_source:
-                comments = re.findall(r'style-scope ytd-comment-renderer">(.*)</yt-formatted-string', driver.page_source)[0]
-            else:
-                comments = 'Not Exist'
-                print(comments)
-                continue
-            comments = comments.replace(',', '')
-            text = comments + ',' + url + "\n"
-            print(text)
-            self.file.write(text)
-            a = 0
-
+                if "Highlighted comment" in driver.page_source:
+                    comment = \
+                        re.findall(r'style-scope ytd-comment-renderer">(.*)</yt-formatted-string', driver.page_source)[
+                            0]
+                else:
+                    comment = 'Not Exist'
+                    print(comment)
+                    continue
+                if not comment.strip():
+                    comment = "unreadable comment / symbol"
+                comment = comment.replace(',', '')
+                text = comment + ',' + url + "\n"
+                print(text)
+                self.file.write(text)
+            except Exception as e:
+                print("Error in url: " + url)
+                print(e)
         driver.close()
 
 

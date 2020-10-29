@@ -6,8 +6,12 @@ from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from webdriver_manager.chrome import ChromeDriverManager
 
-username = "ekolboio@gmail.com"
-password = "sQJyLRyV!/6!V89"
+# username = "ekolboio@gmail.com"
+# password = "sQJyLRyV!/6!V89"
+
+username = "Support@lightingandsupplies.com"
+password = "Amazon2020!"
+
 
 # username = "huwaiguest@gmail.com"
 # password = "arslan_amazon"

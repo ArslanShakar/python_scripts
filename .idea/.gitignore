@@ -1,2 +1,20 @@
 # Default ignored files
 /workspace.xml
+*.csv
+*.xml
+*.xlsx
+*.txt
+*.pyc
+.idea
+__pycache__/
+*.zip
+*.jpg
+*.jpeg
+*.JPEG
+*.PNG
+*.png
+*.xlsl
+*.json
+*.jl
+*.pdf
+*.mp4
