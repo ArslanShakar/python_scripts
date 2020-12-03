@@ -1,9 +1,11 @@
 import re
+from datetime import datetime
 
 numbers_re = re.compile(r'[+][0-9 ]+')
 
-num_txt_file = open("output/funeral_numbers.txt", mode='a')
-num_csv_file = open("output/funeral_numbers.csv", mode='a')
+today = datetime.now().strftime('%d%b%y')
+num_txt_file = open(f"output/funeral_numbers_{today}.txt", mode='w')
+num_csv_file = open(f"output/funeral_numbers_{today}.csv", mode='w')
 num_csv_file.write('Number\n')
 
 files = [
@@ -38,7 +40,7 @@ for filename in files:
 
             for ph in results:
                 ph = ph.strip()
-                if not ph or ph in phones or len(ph) < 9:
+                if not ph or ph in phones or len(ph) < 9 or '+965' not in ph:
                     continue
                 phones.append(ph)
                 num_txt_file.write(ph + '\n')
