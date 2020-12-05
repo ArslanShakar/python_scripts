@@ -4,12 +4,8 @@ from email.mime.text import MIMEText
 
 import mysql.connector as mysql
 
-# RECEIVER_EMAIL = 'alifarslan786@gmail.com'  # REPLACE YOUR MAIL
-RECEIVER_EMAILS = [
-    'alifarslan786@gmail.com',
-    'arslan45936@gmail.com',
-    'mrarslan101@gmail.com'
-    ]
+RECEIVER_EMAIL = 'alifarslan786@gmail.com'  # REPLACE YOUR MAIL
+
 SENDER_EMAIL = 'huwaiguest@gmail.com'  # REPLACE YOUR MAIL
 SENDER_PASSWORD = 'huwai78600'  # REPLACE YOUR PASSWORD
 SERVER = 'smtp.gmail.com:587'
@@ -46,7 +42,7 @@ class SendEmail:
         message = MIMEMultipart("alternative", None, [MIMEText(html, 'html')])
         message['Subject'] = SUBJECT
         message['From'] = "eLAB Reporting"
-        message['To'] = ','.join(RECEIVER_EMAILS)
+        message['To'] = RECEIVER_EMAIL
         return message
 
     def send_message(self):
@@ -59,8 +55,9 @@ class SendEmail:
         server.starttls()
         server.ehlo()
         server.login(SENDER_EMAIL, SENDER_PASSWORD)
-        server.sendmail(SENDER_EMAIL, ','.join(RECEIVER_EMAILS), message.as_string())
+        server.sendmail(SENDER_EMAIL, RECEIVER_EMAIL, message.as_string())
         server.quit()
+        print("Email has been sent.")
 
 
 if __name__ == '__main__':
