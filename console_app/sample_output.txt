@@ -1,0 +1,55 @@
+What is the number of employees? 2
+Enter the employee's name: AAA
+Enter the salary: 4555
+
+Enter the employee's name: BBB
+Enter the salary: 4999
+
+AAA's Salary
+It will take 22 ticket(s) of 200
+It will take 1 ticket(s) of 100
+It will take 1 ticket(s) of 50
+It will take 0 ticket(s) of 20
+You will need 1 coins(s) of 5 euro
+You will need 0 coins(s) of 2 euro
+You will need 0 coins(s) of 1 euro
+It will take 0 pieces(s) of 0.5 cent
+It will take 0 pieces(s) of 0.2 cent
+It will take 0 pieces(s) of 0.1 cent
+It will take 0 pieces(s) of 0.05 cent
+It will take 0 pieces(s) of 0.02 cent
+It will take 0 pieces(s) of 0.01 cent
+
+**************************************
+BBB's Salary
+It will take 24 ticket(s) of 200
+It will take 1 ticket(s) of 100
+It will take 1 ticket(s) of 50
+It will take 2 ticket(s) of 20
+You will need 1 coins(s) of 5 euro
+You will need 2 coins(s) of 2 euro
+You will need 0 coins(s) of 1 euro
+It will take 0 pieces(s) of 0.5 cent
+It will take 0 pieces(s) of 0.2 cent
+It will take 0 pieces(s) of 0.1 cent
+It will take 0 pieces(s) of 0.05 cent
+It will take 0 pieces(s) of 0.02 cent
+It will take 0 pieces(s) of 0.01 cent
+
+**************************************
+**************************************************
+Mr. Debrikedbrok in total, you will have to go to the bank to get:
+
+It will take 46 ticket(s) of 200
+It will take 2 ticket(s) of 100
+It will take 2 ticket(s) of 50
+It will take 2 ticket(s) of 20
+You will need 2 coins(s) of 5 euro
+You will need 2 coins(s) of 2 euro
+You will need 0 coins(s) of 1 euro
+It will take 0 pieces(s) of 0.5 cent
+It will take 0 pieces(s) of 0.2 cent
+It will take 0 pieces(s) of 0.1 cent
+It will take 0 pieces(s) of 0.05 cent
+It will take 0 pieces(s) of 0.02 cent
+It will take 0 pieces(s) of 0.01 cent

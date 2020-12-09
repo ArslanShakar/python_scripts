@@ -15,14 +15,13 @@ while True:
             exit()
 
         no_of_employees = int(input("What is the number of employees? "))
-        print()
         break
     except Exception as err:
         print("Something went wrong. Please enter correct number...")
         retry_times += 1
 
-if not no_of_employees:
-    print("No of employees should greater than zero")
+if not no_of_employees or no_of_employees > 10:
+    print("No of employees should be 1 to 10")
     exit()
 
 while no_of_employees > 0:
@@ -68,18 +67,40 @@ def get_number_of_tickets(emp_salary):
     return tickets
 
 
+def display_message(tickets, coin):
+    message = ''
+    if coin > 10:
+        message = "It will take {} ticket(s) of {}".format(tickets, coin)
+    elif 1 <= coin < 10:
+        message = "You will need {} coins(s) of {} euro".format(tickets, coin)
+    elif coin < 1:
+        message = "It will take {} pieces(s) of {} cent".format(tickets, coin)
+
+    if message:
+        print(message)
+
+
 # Calculate ticket numbers for each employee and store tickets result in each employee dictionary
 for emp in employees:
     emp['tickets'] = get_number_of_tickets(emp['salary'])
 
+bank_notes = {}
 # Display employees data
 for emp in employees:
-    print("{} in total, you will have to go to the bank to get:\n".format(emp['name']))
+    print("{}'s Salary".format(emp['name']))
 
     # iterate on employees tickets dictionary and display no. of tickets for each coin
     # dict.items(): Returns a list of dict's (key, value) tuple pairs
     for coin, tickets in emp['tickets'].items():
-        print("You will need {} ticket(s) of {}".format(tickets, coin))
+        bank_notes.setdefault(coin, 0)
+        bank_notes[coin] += tickets
+        display_message(tickets, coin)
 
     # for making empty new line
-    print('\n**************************************************\n')
+    print('\n**************************************')
+
+# for making empty new line for total bank notes
+print('**************************************************')
+print('Mr. Debrikedbrok in total, you will have to go to the bank to get:\n')
+for coin, ticket_count in bank_notes.items():
+    display_message(ticket_count, coin)
